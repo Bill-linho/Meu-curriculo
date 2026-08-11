@@ -1,0 +1,37 @@
+.curriculo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
+  grid-template-rows: auto auto;  /* 2 linhas */
+  gap: 16px;
+  padding: 10px;
+}
+
+.title {
+  display: flex;
+  flex-direction: line;
+  justify-content: center;
+  padding: 20px;
+  background: #f4f4f4;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 8px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #f4f4f4;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  justify-content: center;
+  display: flex;
+  width: 90px;
+  left: 60px;
+  position: relative;
+}
