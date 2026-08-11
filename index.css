@@ -1,37 +1,285 @@
-.curriculo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
-  grid-template-rows: auto auto;  /* 2 linhas */
-  gap: 16px;
-  padding: 10px;
+```css
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.title {
-  display: flex;
-  flex-direction: line;
-  justify-content: center;
-  padding: 20px;
-  background: #f4f4f4;
-  color: #333;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 8px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef1f5;
+    color: #1f2937;
+    line-height: 1.6;
 }
+
+
+/* ==============================
+   CABEÇALHO
+================================= */
+
+header {
+    width: 90%;
+    max-width: 1050px;
+    margin: 35px auto 25px;
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+/* Nome */
+
+header h1 {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+/* Foto */
+
+header img {
+    width: 135px;
+    height: 135px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid #2563eb;
+
+    margin-bottom: 20px;
+}
+
+/* Informações de contato */
+
+header > div:last-child {
+    padding-top: 18px;
+
+    border-top: 1px solid #e5e7eb;
+
+    font-size: 14px;
+
+    color: #4b5563;
+}
+
+header a {
+    color: #2563eb;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   GRID DO CURRÍCULO
+================================= */
+
+.curriculo-grid {
+    width: 90%;
+    max-width: 1050px;
+
+    margin: 0 auto 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* ==============================
+   CARDS
+================================= */
 
 .card {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: #f4f4f4;
-  color: #333;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border-top: 4px solid #2563eb;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+    transition: 0.2s ease;
 }
 
-img {
-  justify-content: center;
-  display: flex;
-  width: 90px;
-  left: 60px;
-  position: relative;
+.card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.10);
 }
+
+
+/* ==============================
+   TÍTULOS
+================================= */
+
+.card h1 {
+    margin-bottom: 15px;
+
+    padding-bottom: 10px;
+
+    font-size: 21px;
+
+    color: #111827;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card h2 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+
+    font-size: 17px;
+
+    color: #2563eb;
+}
+
+
+/* ==============================
+   TEXTOS
+================================= */
+
+.card p {
+    font-size: 15px;
+
+    color: #4b5563;
+
+    text-align: justify;
+}
+
+
+/* ==============================
+   HABILIDADES
+================================= */
+
+.container_card {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.container_card p {
+    line-height: 1.9;
+}
+
+.container_card > div:last-child {
+    padding: 15px;
+
+    background: #f8fafc;
+
+    border-left: 3px solid #2563eb;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    color: #4b5563;
+}
+
+
+/* ==============================
+   LISTAS
+================================= */
+
+.card ul {
+    padding-left: 20px;
+}
+
+.card li {
+    margin-bottom: 6px;
+
+    color: #4b5563;
+
+    font-size: 15px;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 750px) {
+
+    .curriculo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container_card {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        width: 94%;
+        padding: 25px 18px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    header img {
+        width: 115px;
+        height: 115px;
+    }
+
+    header > div:last-child {
+        line-height: 2;
+    }
+}
+
+
+/* ==============================
+   IMPRESSÃO / PDF
+================================= */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    header,
+    .card {
+        box-shadow: none;
+    }
+
+    header {
+        margin-top: 0;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .curriculo-grid {
+        gap: 12px;
+    }
+
+    a {
+        color: #000;
+    }
+}
+```
